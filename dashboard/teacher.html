@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Dashboard - SmartEd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Reuse existing CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar glass">
+  <div class="logo" style="cursor: pointer;" onclick="window.location.href='../index.html'">SmartEd. <span style="font-weight:400">Teacher</span></div>
+  <ul class="nav-links">
+    <li class="active">Dashboard</li>
+    <li>Students</li>
+    <li>Classes</li>
+    <li>Messages</li>
+    <li>Reports</li>
+    <li>Settings</li>
+  </ul>
+</nav>
+
+<!-- ================= RIGHT SIDEBAR ================= -->
+<aside class="sidebar glass" style="right:20px; left:auto;">
+  <h4>Quick Stats</h4>
+  <p><i class="fa-solid fa-user-group"></i> Active: 45</p>
+  <p><i class="fa-solid fa-clock"></i> Avg Response: 2h</p>
+  <p><i class="fa-solid fa-bell"></i> Notifications: 3</p>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <h1>Teacher Dashboard <span>– BCA Final Year</span></h1>
+    <p>Class performance and student engagement overview</p>
+
+    <div class="stats">
+      <div class="glass stat-card">
+        <h3>45</h3>
+        <p>Active Students</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>12</h3>
+        <p>Pending Reviews</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>2h</h3>
+        <p>Avg Response Time</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASS OVERVIEW -->
+  <section class="section reveal">
+    <h2>Class Overview</h2>
+    <div class="card-grid">
+      <div class="glass stat-card">
+        <h3>BCA Sem VI</h3>
+        <p>Students: 45</p>
+        <p>Avg Grade: 82%</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>BCA Sem V</h3>
+        <p>Students: 38</p>
+        <p>Avg Grade: 78%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT LIST -->
+  <section class="section reveal">
+    <h2>Student List</h2>
+    <div class="glass table">
+      <div class="row header">
+        <span>Name</span>
+        <span>Recent Grade</span>
+        <span>Status</span>
+      </div>
+
+      <div class="row">
+        <span>Akhil Thakur</span>
+        <span>88%</span>
+        <span><i class="fa-solid fa-circle-check" style="color:#00d4ff"></i></span>
+      </div>
+
+      <div class="row">
+        <span>Pushpender Kanwar</span>
+        <span>62%</span>
+        <span><i class="fa-solid fa-triangle-exclamation" style="color:#facc15"></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT FEEDBACK -->
+  <section class="section reveal">
+    <h2>Recent Feedback & Queries</h2>
+    <div class="card-grid">
+      <div class="glass message-card">
+        <h4>Akhil Thakur</h4>
+        <p>Clarification needed for AI module...</p>
+        <span class="tag positive">Positive</span>
+        <button class="btn small">Respond</button>
+      </div>
+
+      <div class="glass message-card">
+        <h4>Jagrit Sharma</h4>
+        <p>Facing issues with assignment deadline</p>
+        <span class="tag neutral">Neutral</span>
+        <button class="btn small">Respond</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANALYTICS -->
+  <section class="section reveal">
+    <h2>Analytics</h2>
+    <div class="card-grid">
+      <div class="glass stat-card">
+        <h3>Engagement</h3>
+        <p>Trend chart placeholder</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>Top Performers</h3>
+        <p>Leaderboard placeholder</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>Low Activity</h3>
+        <p>Alert indicators placeholder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BULK ACTIONS -->
+  <section class="section reveal">
+    <h2>Bulk Actions</h2>
+    <div class="actions">
+      <button class="btn"><i class="fa-solid fa-bullhorn"></i> Send Announcement</button>
+      <button class="btn"><i class="fa-solid fa-pen"></i> Grade Assignment</button>
+      <button class="btn"><i class="fa-solid fa-calendar-plus"></i> Schedule Meeting</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer glass">
+  <p>© 2026 SmartEd. Academic Communication Platform</p>
+</footer>
+
+<!-- Reuse existing JS -->
+<script src="script.js"></script>
+</body>
+</html>

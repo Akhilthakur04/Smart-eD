@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartEd. - Student Teacher Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Reuse SmartEd styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+<!-- ===== FLOATING PARTICLES BACKGROUND ===== -->
+<div class="particles"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav style="position: fixed; top: 0; width: 100%; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; transition: 0.3s;">
+  <h1 style="font-size: 1.6rem; font-weight: 700;"><a href="../index.html" style="background: linear-gradient(135deg, #00d4ff, #a78bfa); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; text-decoration: none; cursor: pointer;">SmartEd.</a></h1>
+  <ul style="display: flex; list-style: none; gap: 35px; align-items: center;">
+    <li><a href="login.html" style="text-decoration: none; color: #00d4ff; font-weight: 500; position: relative; font-size: 0.95rem; transition: all 0.3s;">Login</a></li>
+    <li><a href="signup.html" style="text-decoration: none; color: #b0b0b0; font-weight: 500; position: relative; font-size: 0.95rem; transition: all 0.3s;">Signup</a></li>
+  </ul>
+</nav>
+
+<!-- ===== LOGIN CARD ===== -->
+<main class="auth-container">
+  <div class="glass auth-card reveal">
+
+    <h2 class="auth-logo">SmartEd.</h2>
+    <p class="auth-sub">Student • Teacher Secure Login</p>
+
+    <form id="loginForm" novalidate>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email address" required>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+      </div>
+
+      <button type="submit" class="cta-btn primary">Login</button>
+
+      <a href="#" class="link small">Forgot Password?</a>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="cta-btn glass secondary">
+        <i class="fa-brands fa-google"></i> Continue with Google
+      </button>
+
+      <p class="small-text">
+        Don’t have an account?
+        <a href="signup.html" class="link">Signup</a>
+      </p>
+
+    </form>
+  </div>
+</main>
+
+<script src="script.js"></script>
+
+<!-- ===== LOGIN VALIDATION SCRIPT ===== -->
+<script>
+/* ===== Password Toggle ===== */
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+  const type = password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  togglePassword.classList.toggle("fa-eye-slash");
+});
+
+/* ===== Form Validation ===== */
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const pass = password.value;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!emailRegex.test(email)){
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if(pass.length < 6){
+    alert("Password must be at least 6 characters long.");
+    return;
+  }
+
+  // Demo success (connect backend later)
+  alert("Login successful!");
+});
+</script>
+
+</body>
+</html>

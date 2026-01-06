@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartEd. - Join Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Shared SmartEd styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+<!-- Floating background -->
+<div class="particles"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav style="position: fixed; top: 0; width: 100%; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; transition: 0.3s;">
+  <h1 style="font-size: 1.6rem; font-weight: 700;"><a href="../index.html" style="background: linear-gradient(135deg, #00d4ff, #a78bfa); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; text-decoration: none; cursor: pointer;">SmartEd.</a></h1>
+  <ul style="display: flex; list-style: none; gap: 35px; align-items: center;">
+    <li><a href="login.html" style="text-decoration: none; color: #b0b0b0; font-weight: 500; position: relative; font-size: 0.95rem; transition: all 0.3s;">Login</a></li>
+    <li><a href="signup.html" style="text-decoration: none; color: #00d4ff; font-weight: 500; position: relative; font-size: 0.95rem; transition: all 0.3s;">Signup</a></li>
+  </ul>
+</nav>
+
+<!-- ===== SIGNUP CARD ===== -->
+<main class="auth-container">
+  <div class="glass auth-card reveal" style="width:450px">
+
+    <h2 class="auth-logo">SmartEd.</h2>
+    <p class="auth-sub">Create your academic workspace</p>
+
+    <form id="signupForm" novalidate>
+
+      <!-- FULL NAME -->
+      <div class="input-group">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="fullname" placeholder="Full Name" required>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      </div>
+
+      <!-- ROLE SELECTOR -->
+      <div class="role-selector">
+        <button type="button" class="role-btn active" data-role="Student">Student</button>
+        <button type="button" class="role-btn" data-role="Teacher">Teacher</button>
+      </div>
+      <input type="hidden" id="role" value="Student">
+
+      <!-- CLASS / DEPARTMENT -->
+      <div class="input-group">
+        <i class="fa-solid fa-building-columns"></i>
+        <select id="classDept" required>
+          <option value="">Select Class / Department</option>
+          <option>BCA</option>
+          <option>BSc IT</option>
+          <option>MCA</option>
+          <option>Computer Science</option>
+          <option>Electronics</option>
+        </select>
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="submit" class="cta-btn primary">Create Account</button>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="cta-btn secondary glass">
+        <i class="fa-brands fa-google"></i> Sign up with Google
+      </button>
+
+      <p class="small-text">
+        Already have an account?
+        <a href="login.html" class="link">Login</a>
+      </p>
+
+    </form>
+  </div>
+</main>
+
+<script src="script.js"></script>
+
+<!-- ===== SIGNUP LOGIC ===== -->
+<script>
+/* ===== Role Toggle ===== */
+const roleBtns = document.querySelectorAll(".role-btn");
+const roleInput = document.getElementById("role");
+
+roleBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    roleBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    roleInput.value = btn.dataset.role;
+  });
+});
+
+/* ===== Real-time Password Match ===== */
+const pass = document.getElementById("password");
+const confirmPass = document.getElementById("confirmPassword");
+
+confirmPass.addEventListener("input", () => {
+  confirmPass.style.borderColor =
+    confirmPass.value === pass.value ? "var(--primary)" : "red";
+});
+
+/* ===== Form Validation ===== */
+document.getElementById("signupForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const name = document.getElementById("fullname").value.trim();
+  const dept = document.getElementById("classDept").value;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!name || !email || !pass.value || !confirmPass.value || !dept){
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  if(!emailRegex.test(email)){
+    alert("Invalid email format.");
+    return;
+  }
+
+  if(pass.value !== confirmPass.value){
+    alert("Passwords do not match.");
+    return;
+  }
+
+  if(pass.value.length < 6){
+    alert("Password must be at least 6 characters.");
+    return;
+  }
+
+  // Success animation
+  const card = document.querySelector(".auth-card");
+  card.style.transform = "scale(1.05)";
+  setTimeout(() => {
+    card.style.transform = "scale(1)";
+    alert("Account created successfully!");
+  }, 400);
+});
+</script>
+
+</body>
+</html>

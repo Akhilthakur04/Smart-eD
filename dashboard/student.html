@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard - SmartEd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar glass">
+  <div class="logo" style="cursor: pointer;" onclick="window.location.href='../index.html'">SmartEd.</div>
+  <ul class="nav-links">
+    <li class="active">Dashboard</li>
+    <li>Messages</li>
+    <li>Assignments</li>
+    <li>Grades</li>
+    <li>Profile</li>
+    <li class="logout">Logout</li>
+  </ul>
+</nav>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar glass">
+  <a class="active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+  <a><i class="fa-solid fa-comments"></i> Chat</a>
+  <a><i class="fa-solid fa-book"></i> Assignments</a>
+  <a><i class="fa-solid fa-graduation-cap"></i> Grades</a>
+  <a><i class="fa-solid fa-calendar"></i> Schedule</a>
+  <a><i class="fa-solid fa-gear"></i> Settings</a>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <h1>Welcome, <span>Akhil</span></h1>
+    <p>Your academic overview at a glance</p>
+
+    <div class="stats">
+      <div class="glass stat-card">
+        <h3>3</h3>
+        <p>Pending Tasks</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>5</h3>
+        <p>Unread Messages</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>85%</h3>
+        <p>Average Grade</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT MESSAGES -->
+  <section class="section reveal">
+    <h2>Recent Messages</h2>
+    <div class="card-grid">
+      <div class="glass message-card unread">
+        <h4>Dr. Mankotia</h4>
+        <p>Please review the assignment feedback...</p>
+        <span>2h ago</span>
+      </div>
+      <div class="glass message-card">
+        <h4>Prof.Rahul</h4>
+        <p>Your project proposal looks good.</p>
+        <span>Yesterday</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSIGNMENTS -->
+  <section class="section reveal">
+    <h2>Assignments</h2>
+    <div class="glass table">
+      <div class="row header">
+        <span>Assignment</span>
+        <span>Due Date</span>
+        <span>Status</span>
+      </div>
+
+      <div class="row">
+        <span>Web Technology Report</span>
+        <span>15 Feb</span>
+        <span>
+          <div class="progress">
+            <div style="width:70%"></div>
+          </div>
+        </span>
+      </div>
+
+      <div class="row">
+        <span>AI Mini Project</span>
+        <span>20 Feb</span>
+        <span>
+          <div class="progress">
+            <div style="width:40%"></div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="section reveal">
+    <h2>Performance Overview</h2>
+    <div class="card-grid">
+      <div class="glass stat-card">
+        <h3>8.5</h3>
+        <p>Current GPA</p>
+      </div>
+      <div class="glass stat-card">
+        <h3>Top Subject</h3>
+        <p>Web Development</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACTIONS -->
+  <section class="section reveal">
+    <h2>Quick Actions</h2>
+    <div class="actions">
+      <button class="btn">New Query</button>
+      <button class="btn">View Schedule</button>
+      <button class="btn">Feedback</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer glass">
+  <p>© 2026 SmartEd. Academic Communication Platform</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
